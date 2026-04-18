@@ -94,14 +94,7 @@
 
   .hero-name-block {
     position:relative; z-index:2;
-    display:flex; align-items:center; gap:16px; margin-bottom:22px;
-  }
-  .hero-initials {
-    width:68px; height:68px; border-radius:50%; flex-shrink:0;
-    background:linear-gradient(135deg,var(--blue),var(--accent));
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Unbounded',sans-serif; font-size:22px; font-weight:900;
-    box-shadow:0 0 28px rgba(0,87,255,.4);
+    display:flex; align-items:center; margin-bottom:22px;
   }
   .hero-intro strong { color:var(--white); font-size:17px; font-weight:700; display:block; margin-bottom:3px; }
   .hero-intro span { font-size:13px; color:var(--gray); }
@@ -301,8 +294,39 @@
   .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s, transform .6s; }
   .fade-in.visible { opacity:1; transform:translateY(0); }
 
+  /* PHOTO */
+  .hero-photo-wrap {
+    position:absolute; top:0; right:0;
+    width:58%; height:72%;
+    z-index:1; pointer-events:none; overflow:hidden;
+  }
+  .hero-photo-wrap img {
+    width:100%; height:100%;
+    object-fit:cover; object-position:top center;
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 95%),
+                        linear-gradient(to left, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 30%, transparent 95%),
+                linear-gradient(to left, black 50%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+
   @media(min-width:768px){
-    .hero { flex-direction:row; align-items:center; padding:100px 40px 60px; gap:60px; }
+    .hero {
+      flex-direction:row; align-items:center;
+      padding:100px 40px 60px; gap:40px; min-height:100svh;
+    }
+    .hero-photo-wrap {
+      position:relative; top:auto; right:auto;
+      width:340px; height:460px; flex-shrink:0;
+      border-radius:28px; overflow:hidden;
+    }
+    .hero-photo-wrap img {
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      -webkit-mask-composite: unset; mask-composite: unset;
+      border-radius:28px;
+    }
     .section-wrap { padding:80px 40px; }
     .inner { max-width:860px; margin:0 auto; }
     .tariffs-grid { grid-template-columns:1fr 1fr; }
@@ -321,11 +345,16 @@
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
-  <div style="position:relative;z-index:2;max-width:500px;">
+
+  <!-- ФОТО (мобиль: абсолютное, десктоп: flex-item) -->
+  <div class="hero-photo-wrap">
+    <img src="darkhan.jpg" alt="Дархан" />
+  </div>
+
+  <div style="position:relative;z-index:2;max-width:480px;">
     <div class="hero-badge">Официальный консультант по тарифам</div>
 
     <div class="hero-name-block">
-      <div class="hero-initials">Д</div>
       <div class="hero-intro">
         <strong>Дархан</strong>
         <span>Консультант · Казахстан</span>
