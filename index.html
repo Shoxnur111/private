@@ -168,14 +168,21 @@
   .operator-card:hover { transform:translateY(-3px); border-color:var(--blue); }
   .operator-header { padding:20px 20px 12px; display:flex; align-items:center; gap:14px; }
   .operator-logo {
-    width:52px; height:52px; border-radius:14px; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Unbounded',sans-serif; font-size:12px; font-weight:900;
+    width:56px; height:56px; border-radius:14px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
   }
-  .op-beeline .operator-logo { background:#FFD100; color:#000; }
-  .op-tele2   .operator-logo { background:#0090D0; color:#fff; }
-  .op-altel   .operator-logo { background:#7B2D8B; color:#fff; }
-  .op-activ   .operator-logo { background:#FF6B00; color:#fff; }
+  .operator-logo svg { width:38px; height:38px; }
+
+  /* SUBSCRIBER COUNT */
+  .operator-subs {
+    padding:0 20px 10px;
+    display:flex; align-items:center; gap:6px;
+    font-size:12px; color:var(--gray);
+  }
+  .subs-dot { width:6px; height:6px; border-radius:50%; background:#25D366; box-shadow:0 0 6px #25D366; flex-shrink:0; animation:blink 2s ease-in-out infinite; }
+  .subs-count { font-family:'Unbounded',sans-serif; font-size:12px; font-weight:700; color:var(--white); }
 
   .operator-name { font-family:'Unbounded',sans-serif; font-size:16px; font-weight:900; }
   .operator-desc { font-size:12px; color:var(--gray); margin-top:2px; }
@@ -375,8 +382,8 @@
         <span class="stat-label">лет<br>опыта</span>
       </div>
       <div class="stat">
-        <span class="stat-num">4</span>
-        <span class="stat-label">оператора<br>в наличии</span>
+        <span class="stat-num">2 372</span>
+        <span class="stat-label">клиентов<br>подключено</span>
       </div>
       <div class="stat">
         <span class="stat-num">5★</span>
@@ -433,11 +440,18 @@
 
       <div class="operator-card op-beeline fade-in">
         <div class="operator-header">
-          <div class="operator-logo">BEE</div>
+          <div class="operator-logo">
+            <img src="logo-beeline.png" alt="Beeline" style="width:44px;height:44px;object-fit:contain;" />
+          </div>
           <div>
             <div class="operator-name">Beeline</div>
             <div class="operator-desc">Отличное городское покрытие</div>
           </div>
+        </div>
+        <div class="operator-subs">
+          <span class="subs-dot"></span>
+          <span class="subs-count">847</span>
+          <span>подключились через меня</span>
         </div>
         <div class="operator-price-row">
           <span class="price-amount">3 800 ₸</span>
@@ -454,11 +468,18 @@
 
       <div class="operator-card op-tele2 fade-in">
         <div class="operator-header">
-          <div class="operator-logo">T2</div>
+          <div class="operator-logo">
+            <img src="logo-tele2.png" alt="Tele2" style="width:44px;height:44px;object-fit:contain;" />
+          </div>
           <div>
             <div class="operator-name">Tele2</div>
             <div class="operator-desc">Скоростной интернет</div>
           </div>
+        </div>
+        <div class="operator-subs">
+          <span class="subs-dot"></span>
+          <span class="subs-count">612</span>
+          <span>подключились через меня</span>
         </div>
         <div class="operator-price-row">
           <span class="price-amount">5 000 ₸</span>
@@ -475,11 +496,18 @@
 
       <div class="operator-card op-altel fade-in">
         <div class="operator-header">
-          <div class="operator-logo">ALT</div>
+          <div class="operator-logo">
+            <img src="logo-altel.png" alt="Altel" style="width:44px;height:44px;object-fit:contain;" />
+          </div>
           <div>
             <div class="operator-name">Altel</div>
             <div class="operator-desc">Надёжная связь по всему КЗ</div>
           </div>
+        </div>
+        <div class="operator-subs">
+          <span class="subs-dot"></span>
+          <span class="subs-count">389</span>
+          <span>подключились через меня</span>
         </div>
         <div class="operator-price-row">
           <span class="price-amount">3 800 ₸</span>
@@ -496,11 +524,18 @@
 
       <div class="operator-card op-activ fade-in">
         <div class="operator-header">
-          <div class="operator-logo">ACT</div>
+          <div class="operator-logo">
+            <img src="logo-activ.png" alt="Activ" style="width:44px;height:44px;object-fit:contain;" />
+          </div>
           <div>
             <div class="operator-name">Activ</div>
             <div class="operator-desc">Широкое покрытие, низкая цена</div>
           </div>
+        </div>
+        <div class="operator-subs">
+          <span class="subs-dot"></span>
+          <span class="subs-count">524</span>
+          <span>подключились через меня</span>
         </div>
         <div class="operator-price-row">
           <span class="price-amount">3 500 ₸</span>
